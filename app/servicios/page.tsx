@@ -1,5 +1,3 @@
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
 import WhatsAppButton from "@/components/floating/WhatsAppButton";
 
 import Hero from "./components/Hero";
@@ -12,9 +10,8 @@ import CallToAction from "./components/CallToAction";
 export default function ServiciosPage() {
   return (
     <>
-      <Header />
-
       <main className="flex-1">
+
         <Hero />
 
         <ServicesGrid />
@@ -26,11 +23,11 @@ export default function ServiciosPage() {
         <FAQ />
 
         <CallToAction />
+
       </main>
 
-      <Footer />
-
       <WhatsAppButton />
+
     </>
   );
 }

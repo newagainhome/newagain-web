@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 
+import Footer from "@/components/layout/Footer";
+import Header from "@/components/layout/Header";
 import StructuredData from "@/components/seo/StructuredData";
 
 import { siteConfig } from "@/lib/site";
@@ -48,11 +50,8 @@ export const metadata: Metadata = {
     type: "website",
     locale: "es_ES",
     url: siteConfig.url,
-
     title: siteConfig.seo.title,
-
     description: siteConfig.seo.description,
-
     siteName: siteConfig.name,
 
     images: [
@@ -67,11 +66,8 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-
     title: siteConfig.seo.title,
-
     description: siteConfig.seo.description,
-
     images: [siteConfig.og.image],
   },
 
@@ -92,11 +88,17 @@ export default function RootLayout({
       lang="es"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col">
+      <body className="flex min-h-screen flex-col">
 
         <StructuredData />
 
-        {children}
+        <Header />
+
+        <main className="flex-1">
+          {children}
+        </main>
+
+        <Footer />
 
       </body>
     </html>
