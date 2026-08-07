@@ -1,4 +1,5 @@
 import ServiceBenefits from "@/components/service/ServiceBenefits";
+import ServiceGallery from "@/components/service/ServiceGallery";
 import ServiceHero from "@/components/service/ServiceHero";
 import ServiceProblems from "@/components/service/ServiceProblems";
 
@@ -27,6 +28,12 @@ export default function ServicePage({
       <ServiceBenefits
         benefits={content.benefits}
       />
+
+      {content.gallery.length > 0 && (
+        <ServiceGallery
+          images={content.gallery}
+        />
+      )}
     </>
   );
 }
