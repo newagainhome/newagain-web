@@ -1,12 +1,17 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { company } from "@/lib/company";
 import Container from "@/components/ui/Container";
 
 import { navigation } from "@/lib/navigation";
+import { servicesContent } from "@/lib/service-content";
 import { siteConfig } from "@/lib/site";
 
 export default function Footer() {
+
+  const services = Object.values(servicesContent);
+  
   return (
     <footer className="bg-slate-950 text-white">
       <Container className="py-16">
@@ -26,8 +31,7 @@ export default function Footer() {
             </Link>
 
             <p className="leading-7 text-slate-400">
-              Especialistas en limpieza profesional de sofás, colchones,
-              alfombras, sillas y tapicerías de vehículos.
+              {company.description}
             </p>
           </div>
 
@@ -40,17 +44,20 @@ export default function Footer() {
 
             <ul className="space-y-3 text-slate-400">
 
-              <li><Link href={navigation.services} className="transition hover:text-white">Sofás</Link></li>
+  {services.map((service) => (
+    <li key={service.slug}>
 
-              <li><Link href={navigation.services} className="transition hover:text-white">Colchones</Link></li>
+      <Link
+        href={`/servicios/${service.slug}`}
+        className="transition hover:text-white"
+      >
+        {service.name}
+      </Link>
 
-              <li><Link href={navigation.services} className="transition hover:text-white">Alfombras</Link></li>
+    </li>
+  ))}
 
-              <li><Link href={navigation.services} className="transition hover:text-white">Sillas</Link></li>
-
-              <li><Link href={navigation.services} className="transition hover:text-white">Tapicería de vehículos</Link></li>
-
-            </ul>
+</ul>
           </div>
 
           {/* Empresa */}
@@ -84,7 +91,7 @@ export default function Footer() {
 
             <ul className="space-y-3 text-slate-400">
 
-              <li>📍 {siteConfig.location}</li>
+              <li>📍 {company.serviceArea}</li>
 
               <li>
                 <a
