@@ -5,6 +5,10 @@ import ServiceProblems from "@/components/service/ServiceProblems";
 
 import { ServiceContent } from "@/lib/service-content";
 
+import WhyChooseNewAgain from "@/components/service/WhyChooseNewAgain";
+
+import ServiceCoverage from "@/components/service/ServiceCoverage";
+
 type ServicePageProps = {
   content: ServiceContent;
 };
@@ -34,6 +38,10 @@ export default function ServicePage({
           images={content.gallery}
         />
       )}
+    <ServiceCoverage />
+
+    <WhyChooseNewAgain />
+
     </>
   );
 }
